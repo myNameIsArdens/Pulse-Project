@@ -21,13 +21,13 @@ void setup() {
   pulseSensor.setThreshold(Threshold);   
 
   // Double-check the "pulseSensor" object was created and "began" seeing a signal. 
-   if (pulseSensor.begin()) {
+  if (pulseSensor.begin()) {
     Serial.println("We created a pulseSensor Object !");  //This prints one time at Arduino power-up,  or on Arduino reset.  
   }
 }
 
 void loop() {
- int myBPM = pulseSensor.getBeatsPerMinute();  // Calls function on our pulseSensor object that returns BPM as an "int".
+  int myBPM = pulseSensor.getBeatsPerMinute();  // Calls function on our pulseSensor object that returns BPM as an "int".
                                                // "myBPM" hold this BPM value now. 
 
   Timer = Timer + 1;
@@ -35,16 +35,16 @@ void loop() {
   //Serial.println(Timer);
   
    
- if (pulseSensor.sawStartOfBeat()) {            // Constantly test to see if "a beat happened". 
-  Serial.println("♥  A HeartBeat Happened ! "); // If test is "true", print a message "a heartbeat happened".
-  Serial.print("BPM: ");                        // Print phrase "BPM: " 
-  Serial.println(myBPM);                        // Print the value inside of myBPM. 
-  Timer = 0;
- }
+  if (pulseSensor.sawStartOfBeat()) {            // Constantly test to see if "a beat happened". 
+    Serial.println("♥  A HeartBeat Happened ! "); // If test is "true", print a message "a heartbeat happened".
+    Serial.print("BPM: ");                        // Print phrase "BPM: " 
+    Serial.println(myBPM);                        // Print the value inside of myBPM. 
+    Timer = 0;
+  }
 
- if (Timer > 1){
-  Serial.println("No pulse");
- }
+  if (Timer > 1){
+    Serial.println("No pulse");
+  }
  
- delay(20);                    // considered best practice in a simple sketch.
+  delay(20);                    // considered best practice in a simple sketch.
 }
